@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains a set of Jupyter notebooks implementing an image-processing pipeline and algorithms for matching jigsaw-puzzle pieces (crop, denoise, enhance, and match). The notebooks walk through preprocessing steps, visual outputs, and matching algorithms. One notebook provides a UI-based demo that is available only on Google Colab.
+This repository contains a set of Jupyter notebooks implementing a complete pipeline for jigsaw-puzzle piece matching. The goal is to take raw puzzle-piece images, preprocess them, extract meaningful features, and match them accurately. The project demonstrates image-processing techniques, descriptor extraction, and matching algorithms, with an optional interactive UI for Google Colab.
 
 Key goals:
 - Prepare and clean puzzle-piece images
