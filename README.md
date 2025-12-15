@@ -6,10 +6,30 @@ This repository contains a set of Jupyter notebooks implementing a complete pipe
 
 Key goals:
 - Prepare and clean puzzle-piece images
-- Improve visual quality (denoising, enhancement)
-- Extract descriptors and match pieces
-- Demonstrate an interactive UI (Colab-only)
+- Enhance visual quality for robust feature extraction
+- Extract descriptors and match pieces using algorithmic approaches
+- Demonstrate an interactive UI (Colab only)
 
+## Pipeline & Design Decisions
+  ## 1. Preprocessing
+  Purpose: Improve raw images to ensure feature extraction is reliable.
+  - Cropping: Detects piece contours and isolates each puzzle piece to reduce background noise.
+  - Denoising: Applies Bilateral Filter to remove noise while preserving edges.
+  - Enhancement: Uses histogram equalization, CLAHE, and color adjustments to highlight features.
+  ## 2. Contour Extraction
+  Purpose: Identify puzzle piece boundaries for precise cropping and edge analysis.
+  - Techniques: Canny edge detection, contour approximation, polygonal simplification.
+  - Justification: Accurate contours allow standardizing piece shapes, essential for rotation-invariant matching.
+  ## 3.Edge Representation
+  Purpose: Convert contours into descriptors suitable for matching.
+  - Methods: Edge profiles, shape descriptors, keypoint-based descriptors.
+  - Justification: Representing pieces in a compact, rotation-invariant form improves matching efficiency and robustness.
+  ## 4. Matching
+  Purpose: Compute similarity between puzzle pieces and identify the correct assembly.
+  - Algorithms: Pairwise edge comparison, similarity metrics (SSIM, Euclidean distance of descriptors), optional template matching.
+  - Justification: Multiple similarity measures reduce false matches and improve reconstruction accuracy.
+    
+  
 ## Project Structure
 
 - `Cropping.ipynb` — Tools and workflows to detect and crop puzzle pieces from full images.
@@ -109,3 +129,12 @@ Email: MohammedTaher.6705@gmail.com
 
 
 Questions or changes? message me.
+
+
+## References
+- OpenCV tutorials on denoising and contour detection: https://opencv.org/
+- Gonzalez, R.C., Woods, R.E., Digital Image Processing, 4th Edition, 2018
+- OpenCV contour documentation: https://docs.opencv.org/
+- OpenCV Feature Matching: https://docs.opencv.org/
+- Wang, Z., Bovik, A.C., Modern Image Quality Assessment: SSIM and Beyond, 2009
+- OpenCV Template Matching: https://docs.opencv.org/
